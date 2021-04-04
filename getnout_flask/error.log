@@ -1,1 +1,97 @@
 
+2021-04-04 13:33:13,551 INFO: errors [in /home/whataruckus/Documents/Projects/GetnOut/DatabaseShit/flaskBoi/app.py:95]
+2021-04-04 13:34:08,069 INFO: errors [in /home/whataruckus/Documents/Projects/GetnOut/DatabaseShit/flaskBoi/app.py:98]
+2021-04-04 13:34:15,610 INFO: errors [in /home/whataruckus/Documents/Projects/GetnOut/DatabaseShit/flaskBoi/app.py:98]
+2021-04-04 13:36:10,061 INFO: errors [in /home/whataruckus/Documents/Projects/GetnOut/DatabaseShit/flaskBoi/app.py:98]
+2021-04-04 14:58:36,260 INFO: errors [in /home/whataruckus/Documents/Projects/GetnOut/DatabaseShit/flaskBoi/app.py:108]
+2021-04-04 15:18:15,296 INFO: errors [in /home/whataruckus/Documents/Projects/GetnOut/DatabaseShit/flaskBoi/app.py:112]
+2021-04-04 15:21:52,498 INFO: errors [in /home/whataruckus/Documents/Projects/GetnOut/DatabaseShit/flaskBoi/app.py:112]
+2021-04-04 15:22:06,938 ERROR: Exception on / [GET] [in /home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/whataruckus/Documents/Projects/GetnOut/DatabaseShit/flaskBoi/app.py", line 61, in home
+    contact1 = [User._object_key(User.userName)]
+TypeError: 'property' object is not callable
+2021-04-04 15:22:07,138 ERROR: Exception on /favicon.ico [GET] [in /home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/werkzeug/routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py", line 1816, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py", line 1744, in handle_http_exception
+    return handler(e)
+  File "/home/whataruckus/Documents/Projects/GetnOut/DatabaseShit/flaskBoi/app.py", line 102, in not_found_error
+    return render_template('errors/404.html'), 404
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/whataruckus/Documents/Projects/GetnOut/DatabaseShit/flaskBoi/templates/errors/404.html", line 1, in top-level template code
+    {% extends 'layouts/main.html' %}
+  File "/home/whataruckus/Documents/Projects/GetnOut/DatabaseShit/flaskBoi/templates/layouts/main.html", line 81, in top-level template code
+    {% block content %}{% endblock %}
+  File "/home/whataruckus/Documents/Projects/GetnOut/DatabaseShit/flaskBoi/templates/errors/404.html", line 5, in block "content"
+    <p><a href="{{url_for('index')}}">Back</a></p>
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/helpers.py", line 357, in url_for
+    rv = url_adapter.build(
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/werkzeug/routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'index'. Did you mean 'login' instead?
+2021-04-04 15:22:43,035 INFO: errors [in /home/whataruckus/Documents/Projects/GetnOut/DatabaseShit/flaskBoi/app.py:112]
+2021-04-04 15:22:47,488 ERROR: Exception on / [GET] [in /home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/whataruckus/.local/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/whataruckus/Documents/Projects/GetnOut/DatabaseShit/flaskBoi/app.py", line 61, in home
+    contact1 = [User._object_key(User.userName)]
+TypeError: 'property' object is not callable
