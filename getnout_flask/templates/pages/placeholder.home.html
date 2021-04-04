@@ -6,5 +6,51 @@
   <h1>Welcome to Get 'n Out</h1>
 </div>
 <p class="lead">Here, you can login, set up your Trusted Contacts, and customize the message you want to send in case of an arrest.</p>
+  
+
+<!-- Editable table -->
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">
+    Your trusted contacts
+  </h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2"
+        ><a href="#!" class="text-success"
+          ><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a
+      ></span>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <thead>
+          <tr>
+            <th class="text-center">Person Name</th>
+            <th class="text-center">Phone Number</th>
+            <th class="text-center">Relationship</th>
+            <th class="text-center">Remove</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for item in table %}
+          <tr>
+            <td class="pt-3-half" contenteditable="true">{{item[0]}}</td>
+            <td class="pt-3-half" contenteditable="true">{{item[1]}}</td>
+            <td class="pt-3-half" contenteditable="true">{{item[2]}}</td>
+
+            <td>
+              <span class="table-remove"
+                ><button type="button" class="btn btn-danger">
+                  Remove
+                </button></span
+              >
+            </td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary">Add a Trusted User</button>
+</div>
+<!-- Editable table -->
 
 {% endblock %}

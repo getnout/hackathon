@@ -2,8 +2,8 @@
 # Imports
 #----------------------------------------------------------------------------#
 
-from flask import Flask, render_template, request
-# from flask.ext.sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, request, redirect
+from flask_sqlalchemy import SQLAlchemy
 import logging
 from logging import Formatter, FileHandler
 from forms import *
@@ -24,8 +24,8 @@ def shutdown_session(exception=None):
     db_session.remove()
 '''
 
-# Login required decorator.
 '''
+# Login required decorator.
 def login_required(test):
     @wraps(test)
     def wrap(*args, **kwargs):
@@ -43,12 +43,18 @@ def login_required(test):
 
 @app.route('/')
 def home():
-    return render_template('pages/placeholder.home.html')
+    
+    item1 = ['John Doe', '+18888888888', 'Friend']
+    item2 = ['Jane Smith', '+16782697725', 'Friend']
+    item3 = ['Alex Brown', '+14685925523', 'Friend']
+    table = [item1, item2, item3]
+    return render_template('pages/placeholder.home.html', table = table)
 
 
 @app.route('/about')
 def about():
-    return render_template('pages/placeholder.about.html')
+    #return render_template('pages/placeholder.about.html')
+    return redirect('http://getnoutnow.wordpress.com')
 
 
 @app.route('/login')
@@ -73,7 +79,7 @@ def forgot():
 
 @app.errorhandler(500)
 def internal_error(error):
-    #db_session.rollback()
+    db_session.rollback()
     return render_template('errors/500.html'), 500
 
 
