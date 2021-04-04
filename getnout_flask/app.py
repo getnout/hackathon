@@ -2,12 +2,17 @@
 # Imports
 #----------------------------------------------------------------------------#
 
-from flask import Flask, render_template, request, redirect
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, request, redirect, jsonify
 import logging
 from logging import Formatter, FileHandler
+from userClass import User
+from pymongo.mongo_client import MongoClient
 from forms import *
 import os
+import json
+from flask import Flask, request, jsonify
+from flask_mongoengine import MongoEngine
+
 
 #----------------------------------------------------------------------------#
 # App Config.
@@ -15,18 +20,14 @@ import os
 
 app = Flask(__name__)
 app.config.from_object('config')
-#db = SQLAlchemy(app)
 
-# Automatically tear down SQLAlchemy.
-'''
-@app.teardown_request
-def shutdown_session(exception=None):
-    db_session.remove()
-'''
 
-'''
+client = MongoClient('localhost', 27017)
+db = client['DemoData']
+userContacts = db['userContacts']
+currLogin = User(collection, 'getmeout')
 # Login required decorator.
-def login_required(test):
+'''def login_required(test):
     @wraps(test)
     def wrap(*args, **kwargs):
         if 'logged_in' in session:
@@ -36,6 +37,7 @@ def login_required(test):
             return redirect(url_for('login'))
     return wrap
 '''
+
 #----------------------------------------------------------------------------#
 # Controllers.
 #----------------------------------------------------------------------------#
@@ -43,11 +45,9 @@ def login_required(test):
 
 @app.route('/')
 def home():
-    
-    item1 = ['John Doe', '+18888888888', 'Friend']
-    item2 = ['Jane Smith', '+16782697725', 'Friend']
-    item3 = ['Alex Brown', '+14685925523', 'Friend']
-    table = [item1, item2, item3]
+    currLogin.ParseContacts()
+
+    table = [currLogin.contact1, currLogin.contact2, currLogin.contact3]
     return render_template('pages/placeholder.home.html', table = table)
 
 
@@ -59,6 +59,8 @@ def about():
 
 @app.route('/login')
 def login():
+    
+    
     form = LoginForm(request.form)
     return render_template('forms/login.html', form=form)
 
@@ -79,7 +81,7 @@ def forgot():
 
 @app.errorhandler(500)
 def internal_error(error):
-    db_session.rollback()
+
     return render_template('errors/500.html'), 500
 
 
