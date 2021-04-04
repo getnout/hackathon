@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "606a014719a769aeb7969606"
+  },
+  "userName": "getmeout",
+  "contact1": {
+    "name": "John Doe",
+    "phoneNumber": "+18888888888",
+    "relationship": "Friend"
+  },
+  "contact2": {
+    "name": "Jane Smith",
+    "phoneNumber": "+16782697725",
+    "relationship": "Friend"
+  },
+  "contact3": {
+    "name": "Alex Brown",
+    "phoneNumber": "+16782697725",
+    "relationship": "Friend"
+  }
+}]
